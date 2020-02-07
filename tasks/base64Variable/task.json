@@ -1,0 +1,36 @@
+{
+    "id": "9274fe0b-fdef-49a0-b650-871b2f7a8dee",
+    "name": "devops-show-variables-task",
+    "friendlyName": "Show Variable base64",
+    "description": "variables in base64",
+    "helpMarkDown": "variables in base64.",
+    "category": "Utility",
+    "visibility": [
+        "Release"
+    ],
+    "demands": [
+        "npm"
+    ],
+    "author": "dpolania",
+    "version": {
+        "Major": 0,
+        "Minor": 0,
+        "Patch": 22
+    },
+    "instanceNameFormat": "Base64 variable",
+    "inputs": [
+        {
+            "name": "variableName",
+            "type": "string",
+            "label": "Variable name",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown" : "name of the variable that you want"
+        }
+    ],
+    "execution": {
+        "Node": {
+            "target": "index.js"
+        }
+    }
+}

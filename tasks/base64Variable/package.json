@@ -1,0 +1,21 @@
+{
+    "name": "task",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "azure-devops-node-api": "^7.0.0",
+        "azure-devops-task-utils": "^1.0.8",
+        "azure-pipelines-task-lib": "^2.7.7"
+    },
+    "devDependencies": {
+        "@types/node": "^10.12.12",
+        "@types/q": "^1.5.1",
+        "typescript": "^3.5.2"
+    }
+}

@@ -1,0 +1,96 @@
+{
+    "manifestVersion": 1,
+    "id": "utility-tasks",
+    "name": "Utility Tasks",
+    "version": "0.0.39",
+    "publisher": "dpolania",
+    "targets": [{
+        "id": "Microsoft.VisualStudio.Services"
+    }],
+    "tags": [
+        "BuildNumber"
+    ],
+    "description": "Tools for pipelines",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "content": {
+        "details": {
+            "path": "static/overview.md"
+        }
+    },
+    "icons": {
+        "default": "static/logo.png"
+    },
+    "scopes": [
+        "vso.code_full",
+        "vso.release_manage"
+    ],
+    "files": [{
+            "path": "tasks/setVariables/dist"
+        },
+        {
+            "path": "tasks/base64Variable/dist"
+        },
+        {
+            "path": "tasks/filecontenttovariable/dist"
+        },
+        {
+            "path": "tasks/fileCreator/dist"
+        },
+        {
+            "path": "tasks/downloadFiles/dist"
+        }
+    ],
+    "contributions": [{
+            "id": "publish-download-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "tasks/downloadFiles/dist"
+            }
+        },
+        {
+            "id": "devops-file-create",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "tasks/fileCreator/dist"
+            }
+        },
+        {
+            "id": "devops-file-to-variables",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "tasks/filecontenttovariable/dist"
+            }
+        },
+        {
+            "id": "devops-set-variables-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "tasks/setVariables/dist"
+            }
+        },
+        {
+            "id": "devops-show-base64-variables-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "tasks/base64Variable/dist"
+            }
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "id": "b8f510e9-93bb-4837-9ab7-e977784f754b",
+    "name": "devops-download-files",
+    "friendlyName": "Download files",
+    "description": "This task helps you to donwload file",
+    "helpMarkDown": "Download file using task.",
+    "category": "Utility",
+    "visibility": [
+        "Release", "Build"
+    ],
+    "demands": [
+        "npm"
+    ],
+    "author": "dpolania",
+    "version": {
+        "Major": 0,
+        "Minor": 0,
+        "Patch": 3
+    },
+    "instanceNameFormat": "Download File",
+    "inputs": [
+        {
+            "name": "nameRepository",
+            "type": "string",
+            "label": "Repository Name",
+            "defaultValue": "AWXXX_ ...",
+            "required": true,
+            "helpMarkDown" : "Name of the repository."
+        },
+        {
+            "name": "pathFile",
+            "type": "string",
+            "label": "Path of the artifact .*, full path, including the file extension name",
+            "defaultValue": "*.*",
+            "required": true,
+            "helpMarkDown" : "full path, including the file extension name, example : /src/filename.py"
+        }
+    ],
+    "execution": {
+        "Node": {
+            "target": "index.js"
+        }
+    }
+}

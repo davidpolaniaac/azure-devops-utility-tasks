@@ -1,0 +1,19 @@
+{
+    "name": "task",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "azure-pipelines-task-lib": "^2.8.0"
+    },
+    "devDependencies": {
+        "@types/node": "^10.12.12",
+        "@types/q": "^1.5.1",
+        "typescript": "^3.5.2"
+    }
+}

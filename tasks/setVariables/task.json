@@ -1,0 +1,44 @@
+{
+    "id": "0e768e77-a1b9-4511-a869-cbb061c5ae12",
+    "name": "devops-set-variables-task",
+    "friendlyName": "Create Variable",
+    "description": "Create the value of variables",
+    "helpMarkDown": "Create the value of variables.",
+    "category": "Utility",
+    "visibility": [
+        "Release"
+    ],
+    "demands": [
+        "npm"
+    ],
+    "author": "dpolania",
+    "version": {
+        "Major": 0,
+        "Minor": 0,
+        "Patch": 21
+    },
+    "instanceNameFormat": "Create variable",
+    "inputs": [
+        {
+            "name": "variableName",
+            "type": "string",
+            "label": "Variable name",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown" : "name of the variable that you want to change or name of the variable to create"
+        },
+        {
+            "name": "variableValue",
+            "type": "string",
+            "label": "Variable value",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown" : "value of the variable that you want to change or value of new variable"
+        }
+    ],
+    "execution": {
+        "Node": {
+            "target": "index.js"
+        }
+    }
+}
