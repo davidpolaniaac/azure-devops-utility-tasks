@@ -4,7 +4,6 @@
     "name": "Utility Tasks",
     "version": "0.0.52",
     "publisher": "davidpolaniaac",
-    "public": true,
     "targets": [{
         "id": "Microsoft.VisualStudio.Services"
     }],
