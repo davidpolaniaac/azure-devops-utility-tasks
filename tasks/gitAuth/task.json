@@ -1,0 +1,33 @@
+{
+    "id": "4a870fec-40cf-49db-8df2-adeabeddbf59",
+    "name": "devops-git-auth-task",
+    "friendlyName": "Git auth",
+    "description": "Temporary git credentials",
+    "helpMarkDown": "Use this task to auth using a git without credential",
+    "category": "Utility",
+    "visibility": [
+        "Release",
+        "Build"
+    ],
+    "demands": [
+        "npm"
+    ],
+    "author": "davidpolaniaac",
+    "version": {
+        "Major": 0,
+        "Minor": 0,
+        "Patch": 12
+    },
+    "instanceNameFormat": "Git auth",
+    "inputs": [],
+    "execution": {
+        "Node": {
+            "target": "auth.js"
+        }
+    },
+    "postjobexecution": {
+        "Node": {
+            "target": "reset.js"
+        }
+    }
+}

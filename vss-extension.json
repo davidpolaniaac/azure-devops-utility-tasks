@@ -2,14 +2,19 @@
     "manifestVersion": 1,
     "id": "utility-tasks",
     "name": "Utility Tasks",
-    "version": "0.0.39",
-    "publisher": "dpolania",
+    "version": "0.0.52",
+    "publisher": "davidpolaniaac",
+    "public": true,
     "targets": [{
         "id": "Microsoft.VisualStudio.Services"
     }],
     "tags": [
         "BuildNumber"
     ],
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/davidpolaniaac/azure-devops-utility-tasks.git"
+    },
     "description": "Tools for pipelines",
     "categories": [
         "Azure Pipelines"
@@ -40,6 +45,9 @@
         },
         {
             "path": "tasks/downloadFiles/dist"
+        },
+        {
+            "path": "tasks/gitAuth/dist"
         }
     ],
     "contributions": [{
@@ -90,6 +98,16 @@
             ],
             "properties": {
                 "name": "tasks/base64Variable/dist"
+            }
+        },
+        {
+            "id": "devops-git-auth-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "tasks/gitAuth/dist"
             }
         }
     ]
