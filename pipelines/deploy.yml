@@ -1,39 +1,49 @@
+parameters:
+  - name: extensionVisibility
+    default: private
+    values:
+    - private
+    - public
+  - name : shareWith
+    default: ""
+  - name: connectedServiceName
+
 steps:
   - task: ms-devlabs.vsts-developer-tools-build-tasks.tfx-installer-build-task.TfxInstaller@1
     displayName: "Install tfx-cli"
     inputs:
       version: v0.7.x
 
-  - task: ms-devlabs.vsts-developer-tools-build-tasks.package-extension-build-task.PackageVSTSExtension@1
-    displayName: "Package Extension"
+  - task: ms-devlabs.vsts-developer-tools-build-tasks.extension-version-build-task.ExtensionVersion@1
+    displayName: 'Query Extension Version'
     inputs:
-      rootFolder: "$(System.DefaultWorkingDirectory)"
-      outputPath: "$(Build.StagingDirectory)"
-      publisherId: "$(Extension.Publisher)"
-      extensionId: "$(Extension.Id)"
-      extensionName: "$(Extension.Name)"
-      extensionVersion: "$(Extension.Version)"
-      updateTasksVersion: true
-      extensionVisibility: private
+      connectedServiceName: ${{ parameters.connectedServiceName }}
+      publisherId: '$(Extension.Publisher)'
+      extensionId: '$(Extension.Id)'
+      extensionTag: '$(Extension.Tag)'
+      versionAction: Patch
+
+  - task: ms-devlabs.vsts-developer-tools-build-tasks.publish-extension-build-task.PublishExtension@1
+    displayName: 'Publish Extension'
+    inputs:
+      connectedServiceName: ${{ parameters.connectedServiceName }}
+      fileType: vsix
+      vsixFile: '$(System.DefaultWorkingDirectory)/_AW1192003_Azure_DevOps_Extensions/Artifact/*.vsix'
+      publisherId: '$(Extension.Publisher)'
+      extensionId: '$(Extension.Id)'
+      extensionTag: '$(Extension.Tag)'
+      extensionName: '$(Extension.Name)'
+      extensionVersion: '$(Extension.Version)'
+      updateTasksId: true
+      extensionVisibility: ${{ parameters.extensionVisibility }}
       extensionPricing: free
+      shareWith: ${{ parameters.shareWith }}
 
-  - task: PublishBuildArtifacts@1
-    displayName: "Publish Artifact to VSTS"
+  - task: ms-devlabs.vsts-developer-tools-build-tasks.is-valid-extension-agent-build-task.Check Marketplace validation status.@1
+    displayName: 'Check Marketplace validation status'
     inputs:
-      PathtoPublish: $(build.artifactstagingdirectory)
-      ArtifactName: Artifact
-
-  - task: ArtifactoryGenericUpload@1
-    displayName: "Publish Artifact to Artifactory"
-    inputs:
-      artifactoryService: "Artifactory"
-      fileSpec: |
-        {
-          "files": [
-            {
-              "pattern": "$(Build.StagingDirectory)/$(Extension.Publisher).$(Extension.Id)-$(Extension.Version).vsix",
-              "target": "$(Artifactory.Repository)/$(Build.BuildNumber)/"
-            }
-          ]
-        }
-      collectBuildInfo: true
+      connectedServiceName: ${{ parameters.connectedServiceName }}
+      publisherId: '$(Extension.Publisher)'
+      extensionId: '$(Extension.Id)'
+      extensionTag: '$(Extension.Tag)'
+      extensionVersion: '$(Extension.Version)'

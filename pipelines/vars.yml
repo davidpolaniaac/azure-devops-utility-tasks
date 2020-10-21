@@ -13,4 +13,4 @@ variables:
   - name: Extension.Name
     value: "Utility Tasks"
   - name: Artifactory.Repository
-    value: "build-AW1192003_DevOps_Extension/$(Extension.Id)"
+    value: "$(Extension.Repository)/$(Extension.Id)"

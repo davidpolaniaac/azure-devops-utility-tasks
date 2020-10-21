@@ -19,8 +19,35 @@ queue:
   demands:
     - npm
 
-steps:
-  - template: pipelines/build.yml
 
-  - ${{ if  eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
-      - template: pipelines/deploy.yml
+stages:
+  - stage: Build
+    jobs:
+     - job: build
+       steps:
+         - template: pipeline/build.yml
+
+  - stage: Artifact
+    dependsOn: Build
+    condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+    jobs:
+     - job: artifact
+       steps:
+         - template: pipeline/artifact.yml
+
+  - stage: DeployDev
+    dependsOn: Artifact
+    condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+    jobs:
+     - deployment: deploy
+       environment: pdn
+       strategy:
+        runOnce:
+          deploy:
+            steps:
+            - template: pipeline/deploy.yml
+              parameters:
+                  extensionVisibility: private
+                  shareWith: 
+                  connectedServiceName: 
+   
