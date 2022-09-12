@@ -1,0 +1,21 @@
+{
+  "name": "set-yaml",
+  "version": "1.0.0",
+  "description": "yaml file updater",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "davidpolaniaac",
+  "license": "MIT",
+  "dependencies": {
+    "azure-pipelines-task-lib": "^3.1.10",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
+    "@types/node": "^13.11.0",
+    "@types/q": "^1.5.4",
+    "typescript": "^3.5.2"
+  }
+}

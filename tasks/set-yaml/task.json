@@ -1,0 +1,44 @@
+{
+  "id": "4b6f5ab6-a094-47cc-b01b-c5f29461fcd9",
+  "name": "set-yaml",
+  "friendlyName": "yaml file updater",
+  "description": "yaml file updater",
+  "helpMarkDown": "update a value of a key in a yaml file",
+  "category": "Utility",
+  "author": "davidpolaniaac",
+  "visibility": ["Build", "Release"],
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 58
+  },
+  "instanceNameFormat": "Set YAML",
+  "inputs": [
+    {
+      "name": "path",
+      "type": "filePath",
+      "label": "yaml file",
+      "required": true,
+      "helpMarkDown": "Relative path from agent root to yaml file."
+    },
+    {
+      "name": "key",
+      "type": "string",
+      "label": "key",
+      "required": true,
+      "helpMarkDown": "key name in yaml file"
+    },
+    {
+      "name": "value",
+      "type": "multiLine",
+      "label": "value",
+      "required": true,
+      "helpMarkDown": "key value in yaml file"
+    }
+  ],
+  "execution": {
+    "Node10": {
+      "target": "index.js"
+    }
+  }
+}

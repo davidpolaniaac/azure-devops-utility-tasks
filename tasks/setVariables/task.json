@@ -13,9 +13,9 @@
     ],
     "author": "davidpolaniaac",
     "version": {
-        "Major": 0,
+        "Major": 1,
         "Minor": 0,
-        "Patch": 21
+        "Patch": 58
     },
     "instanceNameFormat": "Create variable",
     "inputs": [

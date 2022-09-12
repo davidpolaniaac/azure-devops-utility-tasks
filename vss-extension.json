@@ -1,113 +1,130 @@
 {
-    "manifestVersion": 1,
-    "id": "utility-tasks",
-    "name": "Utility Tasks",
-    "version": "0.0.52",
-    "publisher": "davidpolaniaac",
-    "targets": [{
-        "id": "Microsoft.VisualStudio.Services"
-    }],
-    "tags": [
-        "BuildNumber"
-    ],
-    "repository": {
-        "type": "git",
-        "uri": "https://github.com/davidpolaniaac/azure-devops-utility-tasks.git"
+  "manifestVersion": 1,
+  "id": "utility-tasks",
+  "name": "Utility Tasks",
+  "version": "1.0.57",
+  "publisher": "davidpolaniaac",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "tags": [
+    "BuildNumber"
+  ],
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/davidpolaniaac/azure-devops-utility-tasks.git"
+  },
+  "description": "Tools for pipelines",
+  "categories": [
+    "Azure Pipelines"
+  ],
+  "content": {
+    "details": {
+      "path": "static/overview.md"
+    }
+  },
+  "icons": {
+    "default": "static/logo.png"
+  },
+  "scopes": [
+    "vso.code_full",
+    "vso.release_manage"
+  ],
+  "files": [
+    {
+      "path": "tasks/setVariables/dist"
     },
-    "description": "Tools for pipelines",
-    "categories": [
-        "Azure Pipelines"
-    ],
-    "content": {
-        "details": {
-            "path": "static/overview.md"
-        }
+    {
+      "path": "tasks/base64Variable/dist"
     },
-    "icons": {
-        "default": "static/logo.png"
+    {
+      "path": "tasks/filecontenttovariable/dist"
     },
-    "scopes": [
-        "vso.code_full",
-        "vso.release_manage"
-    ],
-    "files": [{
-            "path": "tasks/setVariables/dist"
-        },
-        {
-            "path": "tasks/base64Variable/dist"
-        },
-        {
-            "path": "tasks/filecontenttovariable/dist"
-        },
-        {
-            "path": "tasks/fileCreator/dist"
-        },
-        {
-            "path": "tasks/downloadFiles/dist"
-        },
-        {
-            "path": "tasks/gitAuth/dist"
-        }
-    ],
-    "contributions": [{
-            "id": "publish-download-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "tasks/downloadFiles/dist"
-            }
-        },
-        {
-            "id": "devops-file-create",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "tasks/fileCreator/dist"
-            }
-        },
-        {
-            "id": "devops-file-to-variables",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "tasks/filecontenttovariable/dist"
-            }
-        },
-        {
-            "id": "devops-set-variables-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "tasks/setVariables/dist"
-            }
-        },
-        {
-            "id": "devops-show-base64-variables-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "tasks/base64Variable/dist"
-            }
-        },
-        {
-            "id": "devops-git-auth-task",
-            "type": "ms.vss-distributed-task.task",
-            "targets": [
-                "ms.vss-distributed-task.tasks"
-            ],
-            "properties": {
-                "name": "tasks/gitAuth/dist"
-            }
-        }
-    ]
+    {
+      "path": "tasks/fileCreator/dist"
+    },
+    {
+      "path": "tasks/downloadFiles/dist"
+    },
+    {
+      "path": "tasks/gitAuth/dist"
+    },
+    {
+      "path": "tasks/set-yaml/dist"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "publish-download-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "tasks/downloadFiles/dist"
+      }
+    },
+    {
+      "id": "devops-file-create",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "tasks/fileCreator/dist"
+      }
+    },
+    {
+      "id": "devops-file-to-variables",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "tasks/filecontenttovariable/dist"
+      }
+    },
+    {
+      "id": "devops-set-variables-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "tasks/setVariables/dist"
+      }
+    },
+    {
+      "id": "devops-show-base64-variables-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "tasks/base64Variable/dist"
+      }
+    },
+    {
+      "id": "devops-git-auth-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "tasks/gitAuth/dist"
+      }
+    },
+    {
+      "id": "set-yaml",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "tasks/set-yaml/dist"
+      }
+    }
+  ]
 }
